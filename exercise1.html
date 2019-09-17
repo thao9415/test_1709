@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let Pharmacist = function (id, name, age, address) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.getId = function () {
+            return this.id;
+        };
+        this.setId = function () {
+            this.id = id;
+        };
+        this.getName = function () {
+            return this.name;
+        };
+        this.setName = function (name) {
+            this.name = name;
+        };
+        this.getAge = function () {
+            return this.age;
+        };
+        this.setAge = function (age) {
+            this.age = age;
+        };
+        this.getAddress = function () {
+            return this.address;
+        };
+        this.setAddress = function (age) {
+            this.address = address;
+        };
+    };
+    let PharmacistManager = function () {
+        let array = new Array();
+        this.addPharmacist = function (pharmacist) {
+            let namePharmacist = pharmacist.name;
+            array.push(namePharmacist);
+            return array;
+        };
+        this.showPharmacist = function () {
+            for (let i = 0; i < array.length; i++) {
+                document.write(array[i] + "</br>")
+            }
+        };
+    };
+    let pharmacist1 = new Pharmacist("01", "Đỗ Minh Hiệp", 22, "Hà Nội");
+    let pharmacist2 = new Pharmacist("02", "Nguyễn Phú Thảo", 25, "Hà Nội");
+    let pharmacist3 = new Pharmacist("02", "Đoàn Văn Hiệu", 27, "Hà Nội");
+
+    let manager = new PharmacistManager();
+    let resultAdd1 = manager.addPharmacist(pharmacist1);
+    let resultAdd2 = manager.addPharmacist(pharmacist2);
+    let resultAdd3 = manager.addPharmacist(pharmacist3);
+    manager.showPharmacist();
+
+</script>
+</body>
+</html>

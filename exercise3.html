@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Tivi = function (channel, volume, status) {
+        this.channel = channel;
+        this.volume = volume;
+        this.status = status;
+        this.showStatus = function () {
+            if (this.status === "on") {
+                return true
+            }
+            if (this.status === "off") {
+                return false
+            }
+        };
+        this.onOff = function () {
+            if (this.showStatus) {
+                alert("Tv is on and now TV off");
+            } else {
+                alert("Tv is off and now TV on");
+            }
+        };
+
+        this.getVolume = function () {
+            return this.volume;
+        };
+        this.setVolumeUp = function () {
+            if (this.showStatus) {
+                this.volume++;
+                return this.volume;
+            } else {
+                alert("Tv off !!!");
+            }
+        };
+        this.setVolumeDown = function () {
+            if (this.showStatus) {
+                this.volume--;
+                return this.volume;
+            } else {
+                alert("Tv off !!!");
+            }
+        };
+        this.setChannel = function (channel1) {
+            if (this.showStatus) {
+                this.channel = channel1;
+                return this.channel;
+            } else {
+                alert("Tv is off !!!");
+            }
+        };
+        let Remote = function () {
+            this.power = function (tv) {
+                tv.onOff();
+            };
+            this.setVolumeDown = function (tv) {
+                tv.setVolumeDown();
+            };
+            this.setVolumeUp = function (tv) {
+                tv.setVolumeUp();
+            }
+        };
+        let tivi = new Tivi("vtv1", 10, "off");
+        tivi.onOff()
+        let newChannel = tivi.setChannel("vtv7");
+        alert(newChannel);
+        let remote = new Remote();
+        remote.setVolumeDown(tivi);
+</script>
+</body>
+</html>
